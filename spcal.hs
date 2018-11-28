@@ -43,7 +43,6 @@ main = do
                             (c,10, 50, 0.1,1),
                             (d,30, 100 ,1,1),
                             (e,10, 50, 0.1,1)]
-    spins <- myAddSpinButtons hbox names adjs
     spins@s0:s1:s2:s3:s4:s5 <- myAddSpinButtons hbox names adjs
     mapM_ ( `set` [spinButtonDigits := 0]) [s0,s2,s4]
 
