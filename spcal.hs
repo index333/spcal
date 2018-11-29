@@ -1,4 +1,5 @@
 import Graphics.UI.Gtk
+import System.IO
 import MySpinBox
 import Round
 import Control.Monad
@@ -50,8 +51,12 @@ main = do
     mapM (\x-> onValueChanged x (update adjs)) adjs
     containerAdd window vbox
     widgetShowAll window
-    window `on` unrealize $ mainQuit
+    window `on` unrealize $ end adjs
     mainGUI
+end adjs = do
+    l <- mapM (`get` adjustmentValue) adjs
+    mapM_ (\x -> hPutStrLn stderr $ show x) $ tail l
+    mainQuit
 update adjs = do
     h:a:b:c:d:e:_ <- mapM (`get` adjustmentValue) adjs
     disp h a b c "left"
