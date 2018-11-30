@@ -1,0 +1,6 @@
+cat rims.csv | runghc selectItem.hs > rim
+cat hubs.csv | runghc selectItem.hs > hub
+cat rim hub | runghc mkSample.hs > sample
+cat sample | runghc spcal.hs 2> a
+cat a | runghc a2rim.hs 2>> rims.csv
+cat a | runghc a2hub.hs 2>> hubs.csv
