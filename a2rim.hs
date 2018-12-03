@@ -20,7 +20,7 @@ main = do
     containerAdd vbox e
     containerAdd window vbox
     widgetShowAll window
-    window `on` unrealize $ end a e
+    window `on` unrealize $ mainQuit
     mainGUI
 end a e = do
     hPutStr stderr a
