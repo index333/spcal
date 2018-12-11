@@ -26,6 +26,8 @@ main = do
 end adjs e = do
     v0:v1:[] <- mapM (`get` adjustmentValue) adjs
     let h = 100 / 2
+    hPutStr stderr $ "2.6"
+    hPutStr stderr " " 
     hPutStr stderr $ show v0
     hPutStr stderr " " 
     hPutStr stderr $ show $ h - v1
