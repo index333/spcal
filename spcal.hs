@@ -6,7 +6,7 @@ import Control.Monad
 readSample :: IO [Double]
 readSample = do
     r <- getContents
-    return $ map read $ words r
+    return $ map read $ lines r
 rad d = ((2*pi)/360)*d
 dig r = r / (yen/360)
 yen = rad 360 :: Double 
